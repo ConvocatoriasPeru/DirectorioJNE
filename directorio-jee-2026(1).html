@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directorio JEE — Elecciones Generales 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rojo: #C8102E;
+      --rojo-oscuro: #8B0B1F;
+      --oro: #F2A800;
+      --blanco: #FAFAF8;
+      --gris-claro: #F0EEE9;
+      --gris-mid: #D6D2C8;
+      --gris-texto: #3A3830;
+      --negro: #111110;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--blanco);
+      color: var(--gris-texto);
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--negro);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--rojo);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .jne-badge {
+      background: var(--rojo);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .header-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(13px, 2vw, 16px);
+      color: var(--blanco);
+      line-height: 1.3;
+    }
+
+    .header-title span {
+      display: block;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--oro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo) 55%, #E8301A 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.03) 20px,
+        rgba(255,255,255,0.03) 40px
+      );
+    }
+
+    .hero-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(26px, 5vw, 48px);
+      color: #fff;
+      line-height: 1.1;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 16px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--oro);
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 12px 20px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--oro);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── TOOLBAR ─── */
+    .toolbar {
+      background: var(--gris-claro);
+      border-bottom: 1px solid var(--gris-mid);
+      padding: 16px 24px;
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+    }
+
+    .toolbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      pointer-events: none;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 2px solid var(--gris-mid);
+      border-radius: 6px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      background: #fff;
+      color: var(--gris-texto);
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    #searchInput:focus { border-color: var(--rojo); }
+
+    .filter-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #777;
+      white-space: nowrap;
+    }
+
+    #regionFilter {
+      padding: 10px 14px;
+      border: 2px solid var(--gris-mid);
+      border-radius: 6px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      background: #fff;
+      color: var(--gris-texto);
+      outline: none;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+
+    #regionFilter:focus { border-color: var(--rojo); }
+
+    .results-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #888;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ─── MAIN ─── */
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ─── GRID ─── */
+    .jee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .jee-card {
+      background: #fff;
+      border: 1px solid var(--gris-mid);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .jee-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      background: var(--negro);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      min-width: 28px;
+    }
+
+    .card-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      flex: 1;
+    }
+
+    .card-region-tag {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: rgba(242,168,0,0.2);
+      color: var(--oro);
+      border: 1px solid rgba(242,168,0,0.3);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--rojo);
+    }
+
+    .info-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      font-family: 'IBM Plex Mono', monospace;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .info-text {
+      font-size: 13px;
+      color: var(--gris-texto);
+      line-height: 1.45;
+    }
+
+    .info-text.phone {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--rojo);
+      font-weight: 500;
+    }
+
+    .card-footer {
+      padding: 12px 18px;
+      border-top: 1px solid var(--gris-claro);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .horario-badge {
+      font-size: 11px;
+      color: #666;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .form-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      background: var(--rojo);
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+
+    .form-link:hover { background: var(--rojo-oscuro); }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 64px 24px;
+      color: #aaa;
+    }
+
+    .empty-state svg { margin-bottom: 16px; opacity: .4; }
+    .empty-state p { font-size: 15px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--negro);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.8;
+      border-top: 3px solid var(--rojo);
+    }
+
+    footer a { color: var(--oro); text-decoration: none; }
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* ─── NOTA ─── */
+    .nota-info {
+      background: #FFF8E7;
+      border-left: 4px solid var(--oro);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: #5a4b00;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .jee-grid { grid-template-columns: 1fr; }
+      .hero { padding: 36px 16px 32px; }
+      .toolbar-inner { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="jne-badge">JNE</div>
+      <div class="header-title">
+        Jurado Nacional de Elecciones
+        <span>Directorio de JEE · Segunda Elección Presidencial 2026</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      Jr. Cusco 653, Cercado de Lima<br/>
+      0800-00214 &nbsp;·&nbsp; consultas@jne.gob.pe
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Convocatoria de Fiscalizadores de Locales de Votación</p>
+  <h1>Directorio de <em>Jurados Electorales Especiales</em></h1>
+  <p class="hero-sub">Datos de contacto, direcciones y enlaces de postulación para los 56 JEE activos en la segunda elección presidencial 2026.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">56</span>
+      <span class="stat-label">JEE activos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">7 jun</span>
+      <span class="stat-label">Segunda vuelta</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">08–14 h</span>
+      <span class="stat-label">Atención fines de semana</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="search-wrap">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Buscar por JEE, ciudad, dirección…" oninput="filtrar()" />
+    </div>
+    <span class="filter-label">Región:</span>
+    <select id="regionFilter" onchange="filtrar()">
+      <option value="">Todas</option>
+    </select>
+    <span class="results-count" id="resultsCount">56 JEE</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <div class="nota-info">
+    ⚠️ <strong>Nota:</strong> Las direcciones y teléfonos corresponden a las sedes instaladas para las Elecciones Generales 2026 según la Plataforma Electoral del JNE. Los JEE son órganos temporales; ante cualquier cambio de sede consulte directamente al JNE: <strong>0800-00214</strong> (línea gratuita) o <a href="https://portal.jne.gob.pe" target="_blank">portal.jne.gob.pe</a>.
+  </div>
+
+  <div class="jee-grid" id="jeeGrid"></div>
+</main>
+
+<footer>
+  <strong>Jurado Nacional de Elecciones — JNE</strong><br/>
+  Jr. Cusco 653, Cercado de Lima &nbsp;·&nbsp; Lunes a Viernes 8:00–16:00<br/>
+  Línea gratuita: <strong>0800-00214</strong> &nbsp;·&nbsp; <a href="mailto:consultas@jne.gob.pe">consultas@jne.gob.pe</a><br/>
+  <a href="https://portal.jne.gob.pe" target="_blank">portal.jne.gob.pe</a> &nbsp;·&nbsp; Elecciones Generales 2026 · Segunda Elección Presidencial
+</footer>
+
+<script>
+const JEES = [
+  {
+    num: 1, nombre: "Abancay", region: "Apurímac", ciudad: "Abancay",
+    direccion: "Av. Prado Alto N° 721, Abancay",
+    telefono: "083-321734",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSdwOwdIFMaAM_-YeA31sm20VHiDpER3EuZ_YxhJawAQlfC5xw/viewform"
+  },
+  {
+    num: 2, nombre: "Alto Amazonas", region: "Loreto", ciudad: "Yurimaguas",
+    direccion: "Jr. San Martín S/N, cuadra 4, Mz. 125, Lt. 7, Yurimaguas",
+    telefono: "065-352801",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/4JESDMJrpPMCGM2n9"
+  },
+  {
+    num: 3, nombre: "Andahuaylas", region: "Apurímac", ciudad: "Andahuaylas",
+    direccion: "Jr. Ayacucho Mz. A, Lt. 3, Andahuaylas",
+    telefono: "083-422010",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/5mH6m5p7cEtvGGUx7"
+  },
+  {
+    num: 4, nombre: "Arequipa 1", region: "Arequipa", ciudad: "Miraflores (Arequipa)",
+    direccion: "Av. Unión N° 503, Miraflores, Arequipa",
+    telefono: "054-254965",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSeQ3xoemxg4Hy7skhB2UYDkMV9ZHyoc_LVprzQANx8xd5-faQ/viewform"
+  },
+  {
+    num: 5, nombre: "Arequipa 2", region: "Arequipa", ciudad: "José L. Bustamante",
+    direccion: "Mz. A, Lt. 4-B5, Urb. Santo Domingo, J.L. Bustamante y Rivero, Arequipa",
+    telefono: "054-254965",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/dhRNJrXzny145WUq6"
+  },
+  {
+    num: 6, nombre: "Bagua", region: "Amazonas", ciudad: "Bagua",
+    direccion: "Jr. Piura N° 175, Mz. 151, Lt. 14, Zona Cercado, Bagua",
+    telefono: "041-474321",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/f7uozSFtZ19tbiUh8"
+  },
+  {
+    num: 7, nombre: "Cajamarca", region: "Cajamarca", ciudad: "Cajamarca",
+    direccion: "Av. 13 de Julio N° 875, Chontapaccha, Cajamarca",
+    telefono: "076-344518",
+    horario: "L-V 8:00–17:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSeJoMkQJWVyZnwhhI9g5MFjXY2uDR0ntTacoSgAb2tAApeozw/viewform"
+  },
+  {
+    num: 8, nombre: "Callao", region: "Callao", ciudad: "Bellavista",
+    direccion: "Urb. Ciudad del Pescador Mz. C-4 Lote 7, Bellavista, Callao",
+    telefono: "01-429-0040",
+    horario: "L-V 8:30–16:30 / S-D 8:30–14:30",
+    form: "https://forms.gle/HDQsMuozkvBoack1A"
+  },
+  {
+    num: 9, nombre: "Cangallo", region: "Ayacucho", ciudad: "Cangallo",
+    direccion: "Av. 17 de Diciembre N° 100–102, Mz. E1, Lt. 14, Cangallo",
+    telefono: "066-286837",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSfqfxQJ7ysJ69imO0HF3wNt6X47MCHgMlNA4rpBOKhQzbAldA/viewform"
+  },
+  {
+    num: 10, nombre: "Cañete", region: "Lima", ciudad: "San Vicente de Cañete",
+    direccion: "Urbanización Casuarinas Mz. A, Lt. N° 9, San Vicente de Cañete",
+    telefono: "01-581-2020",
+    horario: "L-V 8:30–18:00 / S-D 8:30–14:00",
+    form: "https://forms.gle/28odgkYxXUErxtqu8"
+  },
+  {
+    num: 11, nombre: "Caylloma", region: "Arequipa", ciudad: "Chivay",
+    direccion: "Jr. Santiago Mamani N° 244, Urb. La Rinconada, Chivay",
+    telefono: "054-531060",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/DGUuCoardJuDjZ976"
+  },
+  {
+    num: 12, nombre: "Chachapoyas", region: "Amazonas", ciudad: "Chachapoyas",
+    direccion: "Jr. Ayacucho N° 341, Barrio La Laguna, Chachapoyas",
+    telefono: "041-477256",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/WCBraG51mcqKAUuZ6"
+  },
+  {
+    num: 13, nombre: "Chanchamayo", region: "Junín", ciudad: "La Merced",
+    direccion: "Mz. E, Sub Lt. (4-5) B con frente al Jr. Julio Pirola, Urb. Carolina, La Merced",
+    telefono: "064-531139",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/7WhusUv84Yj6YsRy5"
+  },
+  {
+    num: 14, nombre: "Chiclayo", region: "Lambayeque", ciudad: "Chiclayo",
+    direccion: "Calle Los Manzanos N° 160, Urb. Santa Victoria, Chiclayo",
+    telefono: "074-234632",
+    horario: "L-V 8:30–16:30 / S-D 8:30–14:30",
+    form: "https://forms.gle/DRVLyA6z5ic87gzZ6"
+  },
+  {
+    num: 15, nombre: "Chota", region: "Cajamarca", ciudad: "Chota",
+    direccion: "Jr. 27 de Noviembre N° 729, Chota",
+    telefono: "076-362001",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSfiuJIYUJco0xvaGgtQ7xtNsc9eNYRGuBpW2Y_5pwIN6vcHfw/viewform"
+  },
+  {
+    num: 16, nombre: "Coronel Portillo", region: "Ucayali", ciudad: "Callería",
+    direccion: "Jr. Libertad N° 354, Callería, Pucallpa",
+    telefono: "061-570012",
+    horario: "L-D 8:30–14:30",
+    form: "https://forms.gle/boADKbXESURuMe4EA"
+  },
+  {
+    num: 17, nombre: "Cusco", region: "Cusco", ciudad: "Cusco",
+    direccion: "Pasaje Hermoza (antes Pasaje Pumaqchupan) N° 12, Cusco",
+    telefono: "084-266109",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/F3tPY4Qd3oWNbKhaA"
+  },
+  {
+    num: 18, nombre: "Huamalíes", region: "Huánuco", ciudad: "Llata",
+    direccion: "Centro Poblado Llata, Mz. M, Lt. 9, Llata",
+    telefono: "062-469020",
+    horario: "L-D 8:00–15:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSf6ym_d_ybm_Kh_Gg2hoJQfBWHVugBGKPvZsMMr6H-vfQZUA/viewform"
+  },
+  {
+    num: 19, nombre: "Huamanga", region: "Ayacucho", ciudad: "Ayacucho",
+    direccion: "Jr. Maravillas s/n, Mz. E, Lt. 07, Urb. María Parado de Bellido, Ayacucho",
+    telefono: "066-286837",
+    horario: "L-V 8:30–17:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLScSJIxy1W7mN5JqCb2e3-0vxpPrmEkzHU_bTVyp-knaJ2S1tA/viewform"
+  },
+  {
+    num: 20, nombre: "Huancavelica", region: "Huancavelica", ciudad: "Huancavelica",
+    direccion: "Mz. V1, Lt. 8A, Centro Poblado San Cristóbal, Huancavelica",
+    telefono: "067-452901",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/TS1yBbv1AewhrC9R9"
+  },
+  {
+    num: 21, nombre: "Huancayo", region: "Junín", ciudad: "El Tambo",
+    direccion: "Calle Nemesio Raez N° 251, El Tambo, Huancayo",
+    telefono: "064-241046",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/gCDA5SCg1Tbz8QX3A"
+  },
+  {
+    num: 22, nombre: "Huánuco", region: "Huánuco", ciudad: "Huánuco",
+    direccion: "Jr. Dámaso Beraún N° 437, Huánuco",
+    telefono: "062-281443",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSe30rX74vAc9ITfhTPwVmoUnD4IyLMEtnjE4rKT4-Y04sSHJw/viewform"
+  },
+  {
+    num: 23, nombre: "Huaraz", region: "Áncash", ciudad: "Huaraz",
+    direccion: "Jr. Augusto Soriano Infante N° 839 y Jr. Simón Bolívar s/n, Mz. 103, Lt. 07, Urb. Belén, Huaraz",
+    telefono: "043-234488",
+    horario: "L-V 8:00–17:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/7BnXj9vqVC6rJzdr9"
+  },
+  {
+    num: 24, nombre: "Huari", region: "Áncash", ciudad: "Huari",
+    direccion: "Jr. San Martín N° 312, Ciudad de Huari",
+    telefono: "043-451015",
+    horario: "L-V 9:00–17:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSezs9gSpoGulmxcPOmfJM_YGKQyZ6mj6vF8pypPWfue9ntzbA/viewform"
+  },
+  {
+    num: 25, nombre: "Huarochirí", region: "Lima", ciudad: "Ricardo Palma",
+    direccion: "Mz. R, Lt. 10A, Calle Víctor S/N, Carretera Central Km. 38, Ricardo Palma",
+    telefono: "01-830-1100",
+    horario: "L-V 8:30–16:00 / S-D 8:30–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSemkIr82PqcEvbTMO2ZsLlA_OLQ4JC3hzc8SkO1kixue4piHQ/viewform"
+  },
+  {
+    num: 26, nombre: "Huaura", region: "Lima", ciudad: "Huacho",
+    direccion: "Jr. José T. García N° 160, 1er y 3er piso, Huacho",
+    telefono: "01-232-5000",
+    horario: "L-V 8:30–17:30 / S-D 8:30–14:30",
+    form: "https://forms.gle/DSz6hzuK4iAEvfka7"
+  },
+  {
+    num: 27, nombre: "Ica", region: "Ica", ciudad: "Ica",
+    direccion: "Av. Conde de Nieva N° 1090–1096, Mz. 15, Lt. 6, Ica",
+    telefono: "056-222000",
+    horario: "L-V 8:30–14:30 / S-D 8:30–13:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSfz4QO7CDjqvQwMPzKmdUvpVHnqZpAfHd9_2mXkYso5zQNKrg/viewform"
+  },
+  {
+    num: 28, nombre: "Jaén", region: "Cajamarca", ciudad: "Jaén",
+    direccion: "Psj. Chillón N° 118–118A, Sub Lt. A-1, Sector Pueblo Libre, Jaén",
+    telefono: "076-431001",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSdKZ85k-yCWZp1MhiHgRdzwYSI7nNbgYm1dUIG1u0JG9tzJg/viewform"
+  },
+  {
+    num: 29, nombre: "Lambayeque", region: "Lambayeque", ciudad: "Lambayeque",
+    direccion: "Calle Bolívar N° 447, Lambayeque",
+    telefono: "074-282070",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLScLQfXMjVCy50uvemHcOpkzLveBcGtf6BbGelh24gwkLKimSg/viewform"
+  },
+  {
+    num: 30, nombre: "Leoncio Prado", region: "Huánuco", ciudad: "Rupa-Rupa",
+    direccion: "Jr. Cajamarca N° 972, Mz. 37, Lt. 3B, Tingo María",
+    telefono: "062-562001",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSc78boZcXHHcDeuZc7CnHiF9IiupwYnwiR_IdynFEzNXB9L1A/viewform"
+  },
+  {
+    num: 31, nombre: "Lima Este 1", region: "Lima", ciudad: "Ate",
+    direccion: "Av. Gran Chimú N° 765, Zárate, San Juan de Lurigancho",
+    telefono: "01-311-1700",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSfLulakCxNHqqtC8tXwiSIV2ZTOrcGwSdReNVlL_ua-Ar3WTA/viewform"
+  },
+  {
+    num: 32, nombre: "Lima Este 2", region: "Lima", ciudad: "San Juan de Lurigancho",
+    direccion: "Pueblo Joven Urb. Jardín, Av. Pachacútec N° 2430 (Mz. S, Lt. 3), San Juan de Lurigancho",
+    telefono: "01-311-1700",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSf_4zgDVLLlMc8mYng5yzeYBKtjCK1gyNaKapZLyE3lgOKjGQ/viewform"
+  },
+  {
+    num: 33, nombre: "Lima Norte 1", region: "Lima", ciudad: "San Martín de Porres",
+    direccion: "Calle Federico Wenzara Lineck, Urb. Palao — Cuarta Etapa, SMP",
+    telefono: "01-311-1700",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLScjbPQgP7-3Ud8PIRiej0Me08QtvLt4kLidV7NWdjupW5yROA/viewform"
+  },
+  {
+    num: 34, nombre: "Lima Norte 2", region: "Lima", ciudad: "Comas",
+    direccion: "Av. Universitaria N° 5933, Lt. 14, Mz. D, Comas",
+    telefono: "01-311-1700",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSeCyd_43AJJGgQdQDZ0LxQecgf9Ixu0yHAVzT929xkuMgiZjw/viewform"
+  },
+  {
+    num: 35, nombre: "Lima Norte 3", region: "Lima", ciudad: "Los Olivos",
+    direccion: "Jirón Manuel Duato Mz. A, Lt. 14, Urbanización Mulería Norte, Los Olivos",
+    telefono: "01-311-1700",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/9gq7zjVdnQUtqKmh9"
+  },
+  {
+    num: 36, nombre: "Lima Oeste 1", region: "Lima", ciudad: "Pueblo Libre",
+    direccion: "Calle San Lucas N° 171–175, Pueblo Libre",
+    telefono: "01-311-1700",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/1yvNGo54jBlr5MPslY5sqvDyh9cNu8vm6xOQKQGbsWyg/viewform"
+  },
+  {
+    num: 37, nombre: "Lima Oeste 2", region: "Lima", ciudad: "Surquillo",
+    direccion: "Calle Los Halcones N° 472, Urb. Limatambo, Surquillo",
+    telefono: "01-311-1700",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/HnTvn4ZmpS6A8umV9"
+  },
+  {
+    num: 38, nombre: "Lima Oeste 3", region: "Lima", ciudad: "Santiago de Surco",
+    direccion: "Urbanización Las Gardenias, Jr. Morro Solar N° 1352, Santiago de Surco",
+    telefono: "01-311-1700",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/GF6Havv1eK72hqtH8"
+  },
+  {
+    num: 39, nombre: "Lima Sur 2", region: "Lima", ciudad: "Villa María del Triunfo",
+    direccion: "Calle Las Retamas N° 368, Mz. Q31, Lt. 39, Villa María del Triunfo",
+    telefono: "01-311-1700",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSdd2HNQt_6J3Bo4bW0lPeQZMuy7sPxRq4OdmkBzXVV_73b9dg/viewform"
+  },
+  {
+    num: 40, nombre: "Lucanas", region: "Ayacucho", ciudad: "Puquio",
+    direccion: "Jr. Ayacucho N° 266, Puquio",
+    telefono: "066-451001",
+    horario: "L-V 8:00–17:00 / S-D 8:30–14:00",
+    form: "https://forms.gle/FjnsSmAVHQdPC7kB9"
+  },
+  {
+    num: 41, nombre: "Mariscal Nieto", region: "Moquegua", ciudad: "Moquegua",
+    direccion: "Calle Ilo N° 306, Mariscal Nieto, Moquegua",
+    telefono: "053-463000",
+    horario: "L-V 8:30–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/qdPpt1aqzu4Wqm3W6"
+  },
+  {
+    num: 42, nombre: "Maynas", region: "Loreto", ciudad: "Iquitos",
+    direccion: "Calle Yavarí N° 778, Maynas, Iquitos",
+    telefono: "065-223794",
+    horario: "L-V 9:00–17:00 / S-D 9:00–13:00",
+    form: "https://forms.gle/ig9pu3KU7gTca2z18"
+  },
+  {
+    num: 43, nombre: "Pacasmayo", region: "La Libertad", ciudad: "San Pedro de Lloc",
+    direccion: "Calle Manuel Pastor Ríos N° 643, Mz. 49, Lt. 05, San Pedro de Lloc",
+    telefono: "044-521001",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/DpS2z3kTbNEry7ET6"
+  },
+  {
+    num: 44, nombre: "Pasco", region: "Pasco", ciudad: "Yanacancha",
+    direccion: "Jr. San Martín N° 111, San Juan Pampa, Yanacancha, Pasco",
+    telefono: "063-422001",
+    horario: "L-D 9:00–15:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLScK3c0LmRLfGXk_PtTKBBcd_ZnS9phyl3fsQdbwMqsWEcW-RQ/viewform"
+  },
+  {
+    num: 45, nombre: "Piura 1", region: "Piura", ciudad: "Piura",
+    direccion: "Av. Los Cocos N° 294, Urb. Club Grau, Piura",
+    telefono: "073-205440",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/soyYkVTPn15ohQBZ7"
+  },
+  {
+    num: 46, nombre: "Piura 2", region: "Piura", ciudad: "Castilla",
+    direccion: "Calle Los Juncos L-10, Urb. Miraflores, Castilla, Piura",
+    telefono: "073-205440",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/8f1nnEUDFs4J77s58"
+  },
+  {
+    num: 47, nombre: "Puno", region: "Puno", ciudad: "Puno",
+    direccion: "Jr. Arequipa N° 1173–1181, Puno",
+    telefono: "051-363387",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/dVjNh3dPfZVycHGe9"
+  },
+  {
+    num: 48, nombre: "San Martín", region: "San Martín", ciudad: "Tarapoto",
+    direccion: "Jr. Nicolás de Piérola N° 135, Mz. 0, Lt. 0, Partido Alto, Tarapoto",
+    telefono: "042-522001",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSfZZKD_v95_NCAUMGNvM6Jdhkx6-DLpeQZZ0T7_4cJ1DV6kpw/viewform"
+  },
+  {
+    num: 49, nombre: "San Román", region: "Puno", ciudad: "Juliaca",
+    direccion: "Av. Santa Rosa N° 221, Juliaca",
+    telefono: "051-321001",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/h2tW6Lg54EgR2taS8"
+  },
+  {
+    num: 50, nombre: "Sánchez Carrión", region: "La Libertad", ciudad: "Huamachuco",
+    direccion: "Jr. San Román S/N, cuadra 4, Mz. 125, Lt. 7, Huamachuco",
+    telefono: "044-441001",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/2Nce9Qgse5Rw31Z16"
+  },
+  {
+    num: 51, nombre: "Santa", region: "Áncash", ciudad: "Nuevo Chimbote",
+    direccion: "Las Gaviotas Mz. Z, Lt. 8, Nuevo Chimbote",
+    telefono: "043-321001",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/dG7RSuQow46sbeXJ8"
+  },
+  {
+    num: 52, nombre: "Sullana", region: "Piura", ciudad: "Sullana",
+    direccion: "Av. Los Cocos N° 294, Urb. Club Grau / Calle La Mar N° 344, Sullana",
+    telefono: "073-502001",
+    horario: "L-D 8:00–14:00",
+    form: "https://forms.gle/2Ns6dRMaoSYF5M9A8"
+  },
+  {
+    num: 53, nombre: "Tacna", region: "Tacna", ciudad: "Tacna",
+    direccion: "Calle Los Nardos N° 172, Urb. Pescaserolli, Tacna",
+    telefono: "052-713001",
+    horario: "L-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSe0qp7SPuL1jDcqYh_AyaKHZycC1R7hZecl_iNXUH4amrzhQ/viewform"
+  },
+  {
+    num: 54, nombre: "Tambopata", region: "Madre de Dios", ciudad: "Puerto Maldonado",
+    direccion: "Jr. González Prada N° 1154, Puerto Maldonado",
+    telefono: "082-571494",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLSc0LG8xqEW6831hucGOqdwUX5VkfLp4bNR6P6S2hKS8lTpUA/viewform"
+  },
+  {
+    num: 55, nombre: "Trujillo", region: "La Libertad", ciudad: "Trujillo",
+    direccion: "Calle Fernando La Carrera N° 1026, Urb. La Merced, Trujillo",
+    telefono: "044-209726",
+    horario: "L-V 8:00–16:00 / S-D 8:00–14:00",
+    form: "https://docs.google.com/forms/d/e/1FAIpQLScPzDOCFZAtni704yfhw8LCDmS_sfM3sE2GNqmUV7ebuQCZw/viewform"
+  },
+  {
+    num: 56, nombre: "Tumbes", region: "Tumbes", ciudad: "Tumbes",
+    direccion: "Urb. José Lishner Tudela Mz. N, Lt. 20, Tumbes",
+    telefono: "072-522001",
+    horario: "L-V 8:00–15:00 / S-D 8:00–14:00",
+    form: "https://forms.gle/GfaNZQ4bYff8Gtty9"
+  }
+];
+
+// Poblar filtro de regiones
+const regiones = [...new Set(JEES.map(j => j.region))].sort();
+const sel = document.getElementById('regionFilter');
+regiones.forEach(r => {
+  const opt = document.createElement('option');
+  opt.value = r; opt.textContent = r;
+  sel.appendChild(opt);
+});
+
+function iconDir() {
+  return `<svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+  </svg>`;
+}
+function iconTel() {
+  return `<svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.42 2 2 0 0 1 3.06 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.16a16 16 0 0 0 6 6l1.19-1.19a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/>
+  </svg>`;
+}
+
+function renderCards(list) {
+  const grid = document.getElementById('jeeGrid');
+  document.getElementById('resultsCount').textContent = `${list.length} JEE`;
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="empty-state">
+      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <p>No se encontraron JEE con esos criterios.</p>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = list.map(j => `
+    <div class="jee-card" data-nombre="${j.nombre}" data-region="${j.region}">
+      <div class="card-header">
+        <span class="card-num">#${String(j.num).padStart(2,'0')}</span>
+        <span class="card-name">JEE ${j.nombre}</span>
+        <span class="card-region-tag">${j.region}</span>
+      </div>
+      <div class="card-body">
+        <div class="info-row">
+          ${iconDir()}
+          <div>
+            <span class="info-label">Dirección</span>
+            <span class="info-text">${j.direccion}</span>
+          </div>
+        </div>
+        <div class="info-row">
+          ${iconTel()}
+          <div>
+            <span class="info-label">Teléfono</span>
+            <span class="info-text phone">${j.telefono}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="horario-badge">⏱ ${j.horario}</span>
+        <a class="form-link" href="${j.form}" target="_blank" rel="noopener">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Postular
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filtrar() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const r = document.getElementById('regionFilter').value;
+  const filtered = JEES.filter(j => {
+    const matchRegion = !r || j.region === r;
+    const matchQ = !q ||
+      j.nombre.toLowerCase().includes(q) ||
+      j.region.toLowerCase().includes(q) ||
+      j.ciudad.toLowerCase().includes(q) ||
+      j.direccion.toLowerCase().includes(q) ||
+      j.telefono.includes(q);
+    return matchRegion && matchQ;
+  });
+  renderCards(filtered);
+}
+
+renderCards(JEES);
+</script>
+</body>
+</html>
